@@ -14,7 +14,8 @@ const App = () => (
             <button onClick={() => mineBlock()}>Mine Block</button><br/><br/>
             <button onClick={x}>Console Log BC</button>
           </React.Fragment>
-      )}}
+        )
+      }}
     </BlockchainContext.Consumer>
   </BlockchainProvider>
 )
