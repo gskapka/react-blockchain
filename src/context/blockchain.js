@@ -3,6 +3,8 @@ import keccak from 'keccak'
 
 export const BlockchainContext = React.createContext()
 
+// TODO: Set flag when mining, if new tx added during, it gets added to new block
+
 export class BlockchainProvider extends React.Component {
 
   constructor(props) {
@@ -83,7 +85,7 @@ export class BlockchainProvider extends React.Component {
    */
   generateHash(_block) {
     let nonce = _block.nonce
-      , hash = keccak('keccak256').update(_block.key + nonce).digest('hex')
+      , hash  = keccak('keccak256').update(_block.key + nonce).digest('hex')
     while(!hash.startsWith('00')) {
       nonce += 1
       hash = keccak('keccak256').update(_block.key + nonce).digest('hex')
